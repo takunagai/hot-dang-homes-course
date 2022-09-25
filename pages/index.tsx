@@ -1,12 +1,19 @@
 import client from "client";
 import { gql } from "@apollo/client";
 
-export default function Home(props) {
+import type { GetStaticProps, NextPage } from "next";
+
+// type wpPostData = {
+//   title: string,
+// };
+
+const Home: NextPage = (props) => {
   console.log("PROPS: ", props);
   return <div>Next JS &amp; WordPress course.</div>;
 }
 
-export const getStaticProps = async () => {
+
+export const getStaticProps: GetStaticProps = async () => {
   const {data} = await client.query({
     query: gql`
       query NewQuery {
@@ -25,3 +32,5 @@ export const getStaticProps = async () => {
     }
   }
 }
+
+export default Home;
