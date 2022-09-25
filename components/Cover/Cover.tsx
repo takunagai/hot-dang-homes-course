@@ -1,6 +1,12 @@
+import React from "react";
 import Image from "next/Image";
 
-export const Cover = ({ children, background }) => {
+type Props = {
+  children: React.ReactNode
+  background: string
+}
+
+export const Cover = ({ children, background }: Props) => {
   return (
     <div className="h-screen bg-slate-800 relative min-h-[400px] flex justify-center items-center">
       <Image
