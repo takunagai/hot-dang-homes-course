@@ -16,7 +16,9 @@ export const BlockRenderer = ({ blocks }: Props) => {
       }
       case 'core/cover': {
         console.log("BLOCK", block); // 取得したデータ確認用
-        return <Cover key={block.id} background={block.attributes.url}>core cover</Cover>;
+        return <Cover key={block.id} background={block.attributes.url}>
+          <BlockRenderer blocks={block.innerBlocks} />
+        </Cover>;
       }
       default:
         return null;
