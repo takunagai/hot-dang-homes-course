@@ -1,8 +1,8 @@
-import React from "react";
 import Image from "next/Image";
+import type { ReactNode } from 'react';
 
 type Props = {
-  children: React.ReactNode
+  children: ReactNode
   background: string
 }
 
