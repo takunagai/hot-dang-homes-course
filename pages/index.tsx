@@ -1,6 +1,7 @@
 import client from "client";
 import { gql } from "@apollo/client";
 import { BlockRenderer } from "../components/BlockRenderer";
+import { cleanAndTransformBlocks } from "../utils/cleanAndTransformBlocks"
 
 import type { GetStaticProps, NextPage } from "next";
 
@@ -31,11 +32,12 @@ export const getStaticProps: GetStaticProps = async () => {
         }
       }
     `
-  })
+  });
+
+  const blocks = cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
   return {
     props: {
-      blocks: JSON.parse(data.nodeByUri.blocksJSON),
-      myexampleprop: "test"
+      blocks,
     }
   }
 }
