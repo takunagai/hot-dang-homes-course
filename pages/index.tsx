@@ -1,5 +1,6 @@
 import client from "client";
 import { gql } from "@apollo/client";
+import { BlockRenderer } from "../components/BlockRenderer";
 
 import type { GetStaticProps, NextPage } from "next";
 
@@ -9,7 +10,11 @@ import type { GetStaticProps, NextPage } from "next";
 
 const Home: NextPage = (props) => {
   console.log("PROPS: ", props);
-  return <div>Next JS &amp; WordPress course.</div>;
+  return (
+    <>
+      <BlockRenderer blocks={props.blocks} />
+    </>
+  );
 }
 
 
