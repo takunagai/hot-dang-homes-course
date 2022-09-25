@@ -1,3 +1,5 @@
+import { Cover } from "../Cover";
+
 type Props = {
   blocks: {
     id: string,
@@ -9,7 +11,7 @@ export const BlockRenderer = ({ blocks }: Props) => {
   return blocks.map(block => {
     switch(block.name) {
       case 'core/cover': {
-        return <div key={block.id}>core cover</div>;
+        return <Cover key={block.id} background={block.attributes.url}>core cover</Cover>;
       }
       default:
         return null;
