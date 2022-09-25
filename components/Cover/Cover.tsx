@@ -16,7 +16,7 @@ export const Cover = ({ children, background }: Props) => {
         objectFit="cover"
         className="mix-blend-soft-light"
       />
-      {children}
+      <div className="max-w-5xl z-10">{children}</div>
     </div>
   )
 };
