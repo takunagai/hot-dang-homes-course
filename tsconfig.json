@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2015", // es5
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true, // false
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve", // jsxのコンパイルをtscではなくBabelなど他に任せたい場合に使用, "react"
+    // "types": ["react/next", "react-dom/next"], // ★★Temp 2022-04-20 v18用 もう不要・
+    "sourceMap": true, // Add
+    "baseUrl": ".", // jsconfig.json のものをここに移動
+  },
+  "exclude": ["node_modules", ".next", "out"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+}
