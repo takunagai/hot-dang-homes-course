@@ -1,18 +1,20 @@
 import { gql } from "@apollo/client";
-import client from "client"
+import client from "client";
 
-export default function Page(props) {
+export const Page = (props) => {
   console.log("PAGE PROPS: ", props); // 確認用。現時点では空オブジェクトだけ
   return (
     <div>page</div>
   );
 }
 
+
 export const getStaticProps = async () => {
   return {
     props: {},
   };
 };
+
 
 export const getStaticPaths = async () => {
   const {data} = await client.query({
@@ -36,3 +38,6 @@ export const getStaticPaths = async () => {
     fallback: false,
   }
 };
+
+
+export default Page;
