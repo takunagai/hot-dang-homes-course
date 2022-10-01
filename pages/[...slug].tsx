@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import client from "client";
+import { cleanAndTransformBlocks } from "../utils/cleanAndTransformBlocks";
 
 export const Page = (props) => {
   console.log("PAGE PROPS: ", props); // 確認用。現時点では空オブジェクトだけ
@@ -9,10 +10,28 @@ export const Page = (props) => {
 }
 
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (context) => {
+  console.log("CONTEXT: ", context); // 確認用
+  const {data} = await client.query({
+    query: gql`
+      query NewQuery {
+        nodeByUri(uri: "/") {
+          ... on Page {
+            id
+            title
+            blocksJSON
+          }
+        }
+      }
+    `
+  });
+
+  const blocks = cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
   return {
-    props: {},
-  };
+    props: {
+      blocks,
+    }
+  }
 };
 
 
