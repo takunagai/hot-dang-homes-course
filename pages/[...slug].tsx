@@ -1,21 +1,28 @@
 import { gql } from "@apollo/client";
 import client from "client";
 import { cleanAndTransformBlocks } from "../utils/cleanAndTransformBlocks";
+import { BlockRenderer } from "../components/BlockRenderer";
 
 export const Page = (props) => {
   console.log("PAGE PROPS: ", props); // 確認用。現時点では空オブジェクトだけ
   return (
-    <div>page</div>
+    <div>
+      <BlockRenderer blocks={props.blocks} />
+    </div>
   );
 }
 
 
 export const getStaticProps = async (context) => {
   console.log("CONTEXT: ", context); // 確認用
+
+  const uri = `/${context.params.slug.join("/")}/`;
+  console.log("URI:", uri);
+
   const {data} = await client.query({
     query: gql`
-      query NewQuery {
-        nodeByUri(uri: "/") {
+      query PageQuery($uri: String!) {
+        nodeByUri(uri: $uri) {
           ... on Page {
             id
             title
@@ -23,12 +30,16 @@ export const getStaticProps = async (context) => {
           }
         }
       }
-    `
+    `,
+    variables: {
+      uri,
+    },
   });
 
   const blocks = cleanAndTransformBlocks(data.nodeByUri.blocksJSON);
   return {
     props: {
+      title: data.nodeByUri.title,
       blocks,
     }
   }
