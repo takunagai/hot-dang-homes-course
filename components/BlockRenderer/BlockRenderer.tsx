@@ -1,5 +1,7 @@
 import { Cover } from "../Cover";
 import { Heading } from "../Heading";
+import { Paragraph } from "../Paragraph";
+// import { CoreCoverBlockAttributes, CoreHeadingBlockAttributes } from 'src/generated/graphql';
 
 // ★★TODO: ブロック名で型を分岐させたい
 type Props = {
@@ -24,6 +26,9 @@ export const BlockRenderer = ({ blocks }: Props) => {
       {
         blocks.map(block => {
           switch(block.name) {
+            case 'core/paragraph': {
+              return <Paragraph key={block.id}></Paragraph>;
+            }
             case 'core/heading': {
               return <Heading
                 key={block.id}
