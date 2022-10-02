@@ -1,7 +1,9 @@
-export const Paragraph = () => {
+export const Paragraph = ({ textAlign, content, textColor }) => {
   return (
-    <div>
-      paragraph
-    </div>
+    <p
+      className="max-w-5xl mx-auto"
+      style={{ color: textColor }}
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   );
 };
