@@ -32,7 +32,7 @@ export const BlockRenderer = ({ blocks }: Props) => {
                 key={block.id}
                 textAlign={block.attributes.align}
                 content={block.attributes.content}
-                textColor={theme[block.attributes.textColor] || block.attributes.style.text.color}
+                textColor={theme[block.attributes.textColor] || block.attributes.style?.text?.color}
               ></Paragraph>;
             }
             case 'core/heading': {
