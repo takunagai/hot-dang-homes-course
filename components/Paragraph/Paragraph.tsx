@@ -1,4 +1,5 @@
 import { getTextAlign } from "../../utils/fonts";
+import { relativeToAbsoluteUrls } from "../../utils/relativeToAbsoluteUrls";
 
 type Props = {
   content: string,
@@ -15,7 +16,7 @@ export const Paragraph = ({
     <p
       className={`max-w-5xl mx-auto ${getTextAlign(textAlign)}`}
       style={{ color: textColor }}
-      dangerouslySetInnerHTML={{ __html: content }}
+      dangerouslySetInnerHTML={{ __html: relativeToAbsoluteUrls(content) }}
     />
   );
 };
