@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.WP_IMAGES_URL]
-  }
-};
+    domains: [process.env.WP_IMAGES_URL],
+  },
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

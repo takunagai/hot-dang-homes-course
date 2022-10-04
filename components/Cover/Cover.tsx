@@ -1,5 +1,5 @@
-import Image from "next/image";
-import type { ReactNode } from 'react';
+import Image from "next/image"
+import type { ReactNode } from "react"
 
 type Props = {
   children: ReactNode
@@ -8,7 +8,7 @@ type Props = {
 
 export const Cover = ({ children, background }: Props) => {
   return (
-    <div className="h-screen bg-slate-800 relative min-h-[400px] flex justify-center items-center">
+    <div className="relative flex h-screen min-h-[400px] items-center justify-center bg-slate-800">
       <Image
         alt="cover"
         src={background}
@@ -16,7 +16,7 @@ export const Cover = ({ children, background }: Props) => {
         objectFit="cover"
         className="mix-blend-soft-light"
       />
-      <div className="max-w-5xl z-10">{children}</div>
+      <div className="z-10 max-w-5xl">{children}</div>
     </div>
   )
-};
+}

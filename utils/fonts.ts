@@ -1,12 +1,12 @@
 export const getTextAlign = (textAlign = "left") => {
   const textAlignMap = {
-    "left": "text-left",
-    "right": "text-right",
-    "center": "text-center"
-  };
+    left: "text-left",
+    right: "text-right",
+    center: "text-center",
+  }
 
-  return `${textAlignMap[textAlign] || ""}`;
-};
+  return `${textAlignMap[textAlign] || ""}`
+}
 
 export const getFontSizeForHeading = (level: number) => {
   const fontSizeMap = {
@@ -16,7 +16,7 @@ export const getFontSizeForHeading = (level: number) => {
     4: "text-3xl",
     5: "text-2xl",
     6: "text-xl",
-  };
+  }
 
-  return `${fontSizeMap[level] || ""}`;
-};
+  return `${fontSizeMap[level] || ""}`
+}

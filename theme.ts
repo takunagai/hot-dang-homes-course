@@ -5,5 +5,5 @@ export const theme = {
   secondary: "#ffe2c7",
   tertiary: "#f6f6f6",
   slate: "#1E293B",
-  'vivid-green-cyan': "#00d084"
-};
+  "vivid-green-cyan": "#00d084",
+}
