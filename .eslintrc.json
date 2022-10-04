@@ -1,6 +1,5 @@
 {
-//  "extends": "next/core-web-vitals" // エラー出たので一旦無効化 2022-09-25
-//  "extends": "prettier",
+  "extends": ["next/core-web-vitals", "prettier"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2015
