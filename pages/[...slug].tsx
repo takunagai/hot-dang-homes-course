@@ -3,7 +3,10 @@ import client from "client"
 import { cleanAndTransformBlocks } from "../utils/cleanAndTransformBlocks"
 import { BlockRenderer } from "../components/BlockRenderer"
 
-export const Page = (props) => {
+import { GetStaticPaths, GetStaticProps, NextPage } from "next"
+// type Props = {}
+
+export const Page: NextPage = (props) => {
   console.log("PAGE PROPS: ", props) // 確認用。現時点では空オブジェクトだけ
   return (
     <div>
@@ -12,7 +15,7 @@ export const Page = (props) => {
   )
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   console.log("CONTEXT: ", context) // 確認用
 
   const uri = `/${context.params.slug.join("/")}/`
@@ -44,7 +47,7 @@ export const getStaticProps = async (context) => {
   }
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await client.query({
     query: gql`
       query AllPagesQuery {
